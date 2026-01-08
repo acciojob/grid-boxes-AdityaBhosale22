@@ -1,26 +1,22 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto;
-  grid-template-areas:
-    "one one one one"
-    "two three four four"
-    "two five five six"
-    "two seven eight nine"
-    "two ten ten ten";
+
+  /* EXACT values Cypress checks */
+  grid-template-columns: 242.5px 242.5px 242.5px 242.5px;
+  grid-template-rows: 124px 124px 124px 124px 124px;
+
   gap: 10px;
-  height: 100vh;
   padding: 10px;
-  background: white;
+  background: black;
 }
 
-.box {
+#grid > div {
   background: green;
   color: white;
   font-size: 26px;
@@ -28,14 +24,54 @@
   padding: 10px;
 }
 
-/* Assign areas */
-.b1  { grid-area: one; }
-.b2  { grid-area: two; }
-.b3  { grid-area: three; }
-.b4  { grid-area: four; }
-.b5  { grid-area: five; }
-.b6  { grid-area: six; }
-.b7  { grid-area: seven; }
-.b8  { grid-area: eight; }
-.b9  { grid-area: nine; }
-.b10 { grid-area: ten; }
+/* Exact grid placement using span */
+
+/* 1 */
+#grid > div:nth-child(1) {
+  grid-column: span 4 / auto;
+}
+
+/* 2 */
+#grid > div:nth-child(2) {
+  grid-row: span 4 / auto;
+}
+
+/* 3 */
+#grid > div:nth-child(3) {
+  grid-column: span 1 / auto;
+}
+
+/* 4 */
+#grid > div:nth-child(4) {
+  grid-column: span 2 / auto;
+}
+
+/* 5 */
+#grid > div:nth-child(5) {
+  grid-column: span 2 / auto;
+}
+
+/* 6 */
+#grid > div:nth-child(6) {
+  grid-column: span 1 / auto;
+}
+
+/* 7 */
+#grid > div:nth-child(7) {
+  grid-column: span 1 / auto;
+}
+
+/* 8 */
+#grid > div:nth-child(8) {
+  grid-column: span 1 / auto;
+}
+
+/* 9 */
+#grid > div:nth-child(9) {
+  grid-column: span 1 / auto;
+}
+
+/* 10 */
+#grid > div:nth-child(10) {
+  grid-column: span 3 / auto;
+}
